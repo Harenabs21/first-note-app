@@ -23,9 +23,9 @@ export const HomeScreen = ({ onNotePress, onAddPress }: HomeScreenProps) => {
           <NoteCard key={note.id} note={note} onPress={() => onNotePress(note)} onDelete={() => deleteNote(note.id)} />
         ))}
         {notes.length === 0 && (
-          <View className="flex-1 justify-center items-center mt-10">
-            <Text className="text-gray-500 text-lg">No notes yet</Text>
-            <Text className="text-gray-400">Tap the Add Note button to create one</Text>
+          <View className=" my-auto">
+            <Text className="text-gray-500 text-lg text-center">No notes yet</Text>
+            <Text className="text-gray-400 text-center">Tap the Add Note button to create one</Text>
           </View>
         )}
       </ScrollView>

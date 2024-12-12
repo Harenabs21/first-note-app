@@ -9,12 +9,7 @@ interface NoteFormProps {
   onClose: () => void;
 }
 
-export const NoteForm = ({
-  initialTitle = '',
-  initialContent = '',
-  onSave,
-  onClose,
-}: NoteFormProps) => {
+export const NoteForm = ({ initialTitle = '', initialContent = '', onSave, onClose }: NoteFormProps) => {
   const [title, setTitle] = useState(initialTitle);
   const [content, setContent] = useState(initialContent);
 
@@ -40,17 +35,9 @@ export const NoteForm = ({
         multiline
         textAlignVertical="top"
       />
-      <View className="flex-row justify-end mt-4 space-x-4">
-        <Button
-          onPress={onClose}
-          variant="secondary"
-          label="Cancel"
-        />
-        <Button
-          onPress={handleSave}
-          variant="primary"
-          label="Save"
-        />
+      <View className="flex-row justify-end mt-4 gap-2 space-x-4">
+        <Button onPress={onClose} variant="secondary" label="Cancel" />
+        <Button onPress={handleSave} variant="primary" label="Save" />
       </View>
     </View>
   );
