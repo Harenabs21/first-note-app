@@ -12,26 +12,16 @@ interface NoteCardProps {
 
 export const NoteCard = ({ note, onPress, onDelete }: NoteCardProps) => {
   return (
-    <TouchableOpacity
-      onPress={onPress}
-      className="bg-white p-4 rounded-lg mb-2 shadow-sm"
-    >
+    <TouchableOpacity onPress={onPress} className="bg-white p-4 rounded-lg mb-2 shadow-sm">
       <View className="flex-row justify-between items-start">
         <View className="flex-1">
           <Text className="text-lg font-semibold text-gray-800">{note.title}</Text>
           <Text className="text-gray-600 mt-1" numberOfLines={2}>
             {note.content}
           </Text>
-          <Text className="text-gray-400 text-sm mt-2">
-            {format(new Date(note.updatedAt), 'MMM d, yyyy HH:mm')}
-          </Text>
+          <Text className="text-gray-400 text-sm mt-2">{format(new Date(note.updatedAt), 'MMM d, yyyy HH:mm')}</Text>
         </View>
-        <Button
-          onPress={onDelete}
-          variant="danger"
-          label="Delete"
-          className="ml-2"
-        />
+        <Button onPress={onDelete} variant="danger" label="Delete" className="ml-2" />
       </View>
     </TouchableOpacity>
   );

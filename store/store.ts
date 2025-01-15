@@ -19,9 +19,9 @@ export const useNotesStore = create<NotesState>((set, get) => ({
   loadNotes: async () => {
     try {
       const storedNotes = await AsyncStorage.getItem('notes');
-      set({ 
+      set({
         notes: storedNotes ? JSON.parse(storedNotes) : [],
-        loading: false 
+        loading: false,
       });
     } catch (error) {
       console.error('Error loading notes:', error);
@@ -49,9 +49,7 @@ export const useNotesStore = create<NotesState>((set, get) => ({
   updateNote: async (id: string, title: string, content: string) => {
     try {
       const updatedNotes = get().notes.map((note) =>
-        note.id === id
-          ? { ...note, title, content, updatedAt: new Date().toISOString() }
-          : note
+        note.id === id ? { ...note, title, content, updatedAt: new Date().toISOString() } : note
       );
       await AsyncStorage.setItem('notes', JSON.stringify(updatedNotes));
       set({ notes: updatedNotes });
