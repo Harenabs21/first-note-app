@@ -1,0 +1,33 @@
+name: ci workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  prettier:
+    name: Check Code Formatting
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
+      # Install dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      # Run Prettier check
+      - name: Run Prettier Check
+        run: npx prettier . --check
