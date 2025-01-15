@@ -67,5 +67,13 @@
       "git add"
     ]
   },
-  "private": true
+  "private": true,
+  "expo": {
+    "doctor": {
+      "reactNativeDirectoryCheck": {
+        "listUnknownPackages": false,
+        "skipConfigSchemaCheck": true
+      }
+    }
+  }
 }
